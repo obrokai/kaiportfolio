@@ -43,3 +43,38 @@ function closeLb() {
 }
 if (lb) lb.addEventListener('click', closeLb);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+// before/after slider
+const ba = document.getElementById('ba');
+if (ba) {
+  const frame = ba.querySelector('.ba-frame');
+  const after = ba.querySelector('.layer.after');
+  const divider = ba.querySelector('.ba-divider');
+  let dragging = false;
+  function setPos(clientX) {
+    const r = frame.getBoundingClientRect();
+    let pct = ((clientX - r.left) / r.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    divider.style.left = pct + '%';
+  }
+  const start = (e) => { dragging = true; document.body.style.cursor = 'ew-resize'; };
+  const move = (e) => {
+    if (!dragging) return;
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    setPos(x);
+    e.preventDefault();
+  };
+  const end = () => { dragging = false; document.body.style.cursor = ''; };
+  divider.addEventListener('mousedown', start);
+  divider.addEventListener('touchstart', start, { passive: true });
+  window.addEventListener('mousemove', move);
+  window.addEventListener('touchmove', move, { passive: false });
+  window.addEventListener('mouseup', end);
+  window.addEventListener('touchend', end);
+  // click-to-jump
+  frame.addEventListener('click', (e) => {
+    if (e.target.closest('.ba-divider')) return;
+    setPos(e.clientX);
+  });
+}

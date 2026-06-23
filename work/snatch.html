@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../styles.css?v=4" />
 </head>
 <body>
 
@@ -92,6 +92,32 @@
           <div class="swatch"><div class="chip" style="background:#F4F1EC"></div><span class="nm">Canvas</span><span class="hex">#F4F1EC</span></div>
           <div class="swatch"><div class="chip" style="background:#16150F"></div><span class="nm">Ink</span><span class="hex">#16150F</span></div>
         </div>
+
+        <div class="mood" aria-label="Colour mood board" style="margin-top:34px">
+          <div class="tile tall" style="background:linear-gradient(180deg,#FFD9A8 0%,#FF8A3D 45%,#F2641E 100%)">
+            <div class="lbl"><span><b>Sunrise</b>The moment momentum begins</span></div>
+          </div>
+          <div class="tile wide darklbl" style="background:linear-gradient(135deg,#FFE0CC,#FBC7B0)">
+            <div class="lbl"><span><b>Warm canvas</b>Soft neutral that lets the coach be the hero</span></div>
+          </div>
+          <div class="tile" style="background:radial-gradient(circle at 30% 30%,#FF6A1F,#7A1E04)">
+            <div class="lbl"><span><b>Heat &amp; effort</b>Physical exertion, body warmth</span></div>
+          </div>
+          <div class="tile" style="background:linear-gradient(160deg,#FFB347,#F58220 60%,#E04E0D)">
+            <div class="lbl"><span><b>Citrus zest</b>Energy, immediacy, appetite</span></div>
+          </div>
+          <div class="tile wide" style="padding:0;background:#000">
+            <img src="../assets/ndEYziHlRYFTuJQcOcdbv7lst4.png" alt="Brand expression in context" style="opacity:.9">
+            <div class="lbl"><span><b>Brand in context</b>Snatch identity, lit by the same warmth</span></div>
+          </div>
+          <div class="tile" style="background:linear-gradient(135deg,#FFF1E0,#FFD9A8)">
+            <div class="lbl darklbl"><span style="color:var(--ink)"><b>Studio glow</b>Late-afternoon training light</span></div>
+          </div>
+          <div class="tile" style="background:linear-gradient(135deg,#C9B6F0,#FBC7B0 60%,#FF8A3D)">
+            <div class="lbl"><span><b>Cool down</b>Pastel exit — reflection &amp; recovery</span></div>
+          </div>
+        </div>
+        <p class="mood-cap">A palette built from a single emotional arc — warm-up, peak effort, and cool-down — so every flow in the product feels like part of one session.</p>
       </div>
     </div>
 
@@ -99,6 +125,40 @@
       <span class="lab">Surfaces &amp; depth</span>
       <div class="body">
         <p>Frosted gradient surfaces, soft depth and rounded cards give the interface a tactile, premium feel. The booking sheet layers translucency so available time-slots appear to float above the context behind them — turning an admin task into something that feels light and considered.</p>
+
+        <div class="spec-grid" aria-label="Material specimens">
+          <div class="spec">
+            <div class="spec-stage"><div class="panel"></div></div>
+            <h5>Frosted panel</h5>
+            <p>Translucent layer that lets brand colour bleed through, keeping content legible without flattening the surface.</p>
+            <dl>
+              <dt>Fill</dt><dd>rgba(255,255,255,.32)</dd>
+              <dt>Blur</dt><dd>18px · saturate 1.5</dd>
+              <dt>Radius</dt><dd>14px</dd>
+              <dt>Edge</dt><dd>1px highlight inset</dd>
+            </dl>
+          </div>
+          <div class="spec">
+            <div class="spec-stage grad"></div>
+            <h5>Brand gradient</h5>
+            <p>Three-stop warm gradient with a top-right glint — used on key feature cards and onboarding moments.</p>
+            <dl>
+              <dt>Stops</dt><dd>#FFB48A → #F2641E → #FFD9C2</dd>
+              <dt>Angle</dt><dd>160°</dd>
+              <dt>Glint</dt><dd>radial 70% 30% · 45% white</dd>
+            </dl>
+          </div>
+          <div class="spec">
+            <div class="spec-stage elev"><div class="panel"></div></div>
+            <h5>Elevation</h5>
+            <p>Two-layer shadow keeps cards anchored at rest and feeling lifted on hover — never harsh, never floating.</p>
+            <dl>
+              <dt>Drop</dt><dd>0 30 50 −22 / 45% ink</dd>
+              <dt>Contact</dt><dd>0 8 16 −8 / 22% ink</dd>
+              <dt>Radius</dt><dd>16px</dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -142,6 +202,48 @@
   </div>
 </section>
 
+<!-- BEFORE / AFTER -->
+<section class="p-section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">✦</span><h2>From wireframe to finished surface</h2><span class="line"></span></div>
+    <div class="p-grid" style="margin-bottom:30px">
+      <span class="lab">Decision impact</span>
+      <div class="body">
+        <p>The booking flow began as a flat, utilitarian list. Drag the slider to see how the final design rebuilds the same screen as a layered, frosted surface — the same information, given material and finish.</p>
+      </div>
+    </div>
+
+    <div class="ba" id="ba" role="figure" aria-label="Before and after comparison">
+      <div class="ba-frame">
+        <!-- BEFORE: low-fi wireframe (placeholder — swap with real "before" screenshot when available) -->
+        <div class="layer before">
+          <div class="wf">
+            <div class="wf-phone">
+              <div class="ln sh"></div>
+              <div class="ln md"></div>
+              <div class="grid4"><div></div><div></div><div></div><div></div></div>
+              <div class="ln lg" style="margin-top:6px"></div>
+              <div class="ln lg"></div>
+              <div class="ln md"></div>
+              <div class="ln lg"></div>
+              <div class="ln md"></div>
+              <div class="btn"></div>
+            </div>
+          </div>
+        </div>
+        <!-- AFTER: actual final UI -->
+        <div class="layer after">
+          <img src="../assets/RyprGFFgV8ywdCHTCks286eVrS4.png" alt="Final booking flow with frosted material" loading="lazy" />
+        </div>
+        <span class="ba-tag l">Before · wireframe</span>
+        <span class="ba-tag r">After · final</span>
+        <div class="ba-divider" id="ba-divider"><div class="ba-handle" aria-label="Drag to compare"></div></div>
+      </div>
+    </div>
+    <p class="ba-note">Drag the handle — or tap left/right of the divider — to compare. <em>Placeholder wireframe shown on the left; swap-in slot for real legacy screenshot when available.</em></p>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="p-section" style="padding-top:20px">
   <div class="wrap">
@@ -178,6 +280,6 @@
 </footer>
 
 <div class="lb" id="lb"><span class="close">✕</span><img id="lbimg" src="" alt="enlarged view"></div>
-<script src="../app.js"></script>
+<script src="../app.js?v=4"></script>
 </body>
 </html>
