@@ -4,10 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mike — UI/UX Designer</title>
-<meta name="description" content="Mike (kaidesignworks) — UI/UX Designer crafting clear, intuitive digital experiences that solve real problems." />
+<meta name="description" content="Mike (kaidesignworks) — UI/UX Designer crafting clear, intuitive digital experiences. Selected work: Snatch (Sol Fir Tech) & Aha AI." />
+<link rel="icon" href="assets/teUTgRqFtWsZnogJA2zK9P2FvU.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#f4f3ee;
@@ -18,8 +19,8 @@
     --ink:#16150f;
     --ink-dim:#54524a;
     --ink-faint:#9b988d;
-    --accent:#c8ff4d;        /* lime for fills */
-    --accent-ink:#4f6e00;    /* readable lime for text on light */
+    --accent:#c8ff4d;
+    --accent-ink:#4f6e00;
     --accent-soft:rgba(143,191,0,.16);
     --r:18px;
     --ease:cubic-bezier(.22,1,.36,1);
@@ -28,116 +29,65 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:"Inter",system-ui,sans-serif;
-    font-weight:400;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background:var(--bg);color:var(--ink);
+    font-family:"Inter","Noto Sans TC",system-ui,sans-serif;font-weight:400;line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   ::selection{background:var(--accent);color:#16150f}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
-
-  /* grain overlay */
   body::after{
     content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
   @media(max-width:640px){.wrap{padding:0 22px}}
-
   .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.01em}
-  .tight{font-family:"Inter Tight",sans-serif}
-  .mono-label{
-    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--ink-faint);font-weight:500;
-  }
+  .tc{font-family:"Noto Sans TC",sans-serif}
+  .mono-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
 
-  /* ---------- NAV ---------- */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:22px 32px;
-    transition:background .4s var(--ease),padding .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);
-    border-bottom:1px solid transparent;
-  }
-  nav.scrolled{
-    background:rgba(244,243,238,.75);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    padding:14px 32px;border-bottom:1px solid var(--line);
-  }
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:22px 32px;transition:all .4s var(--ease);border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(244,243,238,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:14px 32px;border-bottom:1px solid var(--line)}
   @media(max-width:640px){nav,nav.scrolled{padding-left:22px;padding-right:22px}}
   .brand{display:flex;align-items:center;gap:11px;font-family:"Inter Tight";font-weight:600;font-size:15px;letter-spacing:-.01em}
   .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-ink);box-shadow:0 0 0 4px var(--accent-soft)}
   .navlinks{display:flex;gap:34px;align-items:center}
   .navlinks a{font-size:13.5px;color:var(--ink-dim);transition:color .25s;position:relative}
   .navlinks a:hover{color:var(--ink)}
-  .navlinks a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent-ink);transition:width .3s var(--ease)}
-  .navlinks a:hover::after{width:100%}
-  .nav-cta{
-    border:1px solid var(--ink);border-radius:100px;padding:9px 18px !important;
-    color:var(--ink) !important;font-weight:500;transition:all .3s var(--ease) !important;
-  }
+  .navlinks a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent-ink);transition:width .3s var(--ease)}
+  .navlinks a:not(.nav-cta):hover::after{width:100%}
+  .nav-cta{border:1px solid var(--ink);border-radius:100px;padding:9px 18px !important;color:var(--ink) !important;font-weight:500;transition:all .3s var(--ease) !important}
   .nav-cta:hover{background:var(--ink);color:var(--bg) !important}
-  .nav-cta::after{display:none}
   @media(max-width:760px){.navlinks .hide-sm{display:none}}
 
-  /* ---------- HERO ---------- */
-  header{
-    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-    position:relative;padding-top:120px;padding-bottom:80px;overflow:hidden;
-  }
-  .hero-glow{
-    position:absolute;top:-14%;right:-8%;width:62vw;height:62vw;max-width:780px;max-height:780px;
-    background:radial-gradient(circle,rgba(200,255,77,.45),transparent 60%);
-    filter:blur(40px);pointer-events:none;z-index:0;
-  }
+  /* HERO */
+  header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;padding-top:120px;padding-bottom:70px;overflow:hidden}
+  .hero-glow{position:absolute;top:-14%;right:-8%;width:62vw;height:62vw;max-width:780px;max-height:780px;background:radial-gradient(circle,rgba(200,255,77,.45),transparent 60%);filter:blur(40px);pointer-events:none;z-index:0}
   .hero-inner{position:relative;z-index:1}
-  .hero-top{display:flex;align-items:center;gap:14px;margin-bottom:38px}
-  .hero-top .av{
-    width:46px;height:46px;border-radius:50%;flex:none;
-    background:linear-gradient(135deg,#c8ff4d,#7da600);
-    display:grid;place-items:center;font-family:"Inter Tight";font-weight:700;color:#16150f;font-size:18px;
-    box-shadow:0 0 0 1px var(--line-strong);
-  }
+  .hero-top{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+  .hero-top .av{width:50px;height:50px;border-radius:50%;flex:none;object-fit:cover;box-shadow:0 0 0 1px var(--line-strong),0 6px 18px -8px rgba(20,18,12,.4);filter:grayscale(1) contrast(1.05)}
   .hero-top .meta{font-size:13.5px;color:var(--ink-dim)}
   .hero-top .meta b{color:var(--ink);font-weight:600}
-  .status{
-    display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-dim);
-    border:1px solid var(--line-strong);border-radius:100px;padding:5px 12px;margin-bottom:30px;background:var(--surface);
-  }
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-dim);border:1px solid var(--line-strong);border-radius:100px;padding:5px 12px;margin-bottom:30px;background:var(--surface)}
   .status .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);position:relative}
   .status .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent-ink);animation:pulse 2s infinite}
   @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3);opacity:0}}
-
-  h1.hero-title{
-    font-size:clamp(2.9rem,8.5vw,7.6rem);line-height:.98;letter-spacing:-.03em;font-weight:600;
-    font-family:"Inter Tight";
-  }
+  h1.hero-title{font-size:clamp(2.9rem,8.5vw,7.6rem);line-height:.98;letter-spacing:-.03em;font-weight:600;font-family:"Inter Tight"}
   h1.hero-title .ln{display:block;overflow:hidden}
   h1.hero-title em{font-style:italic;font-weight:400;color:var(--accent-ink)}
   .hero-title .reveal{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
   .loaded .hero-title .reveal{transform:translateY(0)}
-  .hero-title .reveal.d1{transition-delay:.05s}
-  .hero-title .reveal.d2{transition-delay:.15s}
-  .hero-title .reveal.d3{transition-delay:.25s}
-
-  .hero-sub{
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px;
-    margin-top:46px;opacity:0;transform:translateY(20px);transition:all 1s var(--ease) .5s;
-  }
+  .hero-title .reveal.d1{transition-delay:.05s}.hero-title .reveal.d2{transition-delay:.15s}.hero-title .reveal.d3{transition-delay:.25s}
+  .hero-sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:46px;opacity:0;transform:translateY(20px);transition:all 1s var(--ease) .5s}
   .loaded .hero-sub{opacity:1;transform:none}
-  .hero-sub p{max-width:440px;font-size:clamp(1rem,1.4vw,1.18rem);color:var(--ink-dim);line-height:1.6}
+  .hero-sub p{max-width:460px;font-size:clamp(1rem,1.4vw,1.18rem);color:var(--ink-dim);line-height:1.6}
   .hero-sub p .serif{color:var(--ink);font-size:1.15em}
   .scroll-hint{display:flex;align-items:center;gap:10px;color:var(--ink-faint);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
   .scroll-hint .arrow{width:30px;height:30px;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;animation:bob 2.4s var(--ease) infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-
-  /* marquee */
-  .marquee{margin-top:78px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;opacity:0;transition:opacity 1s ease .8s}
+  .marquee{margin-top:70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;opacity:0;transition:opacity 1s ease .8s}
   .loaded .marquee{opacity:1}
   .marquee-track{display:flex;gap:50px;white-space:nowrap;width:max-content;animation:scroll 32s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
@@ -145,118 +95,104 @@
   .marquee span::before{content:"✦";color:var(--accent-ink);font-size:.8rem}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
-  /* ---------- SECTION SHELL ---------- */
+  /* SECTION */
   section{position:relative;padding:120px 0}
   .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:64px}
   .sec-head .num{font-family:"Instrument Serif";font-size:1.1rem;color:var(--accent-ink)}
   .sec-head h2{font-family:"Inter Tight";font-size:clamp(1.8rem,3.6vw,2.9rem);font-weight:600;letter-spacing:-.02em}
   .sec-head .line{flex:1;height:1px;background:var(--line);align-self:center}
-
   .reveal-up{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .reveal-up.in{opacity:1;transform:none}
 
-  /* ---------- WORK ---------- */
-  .projects{display:flex;flex-direction:column;gap:26px}
-  .proj{
-    display:grid;grid-template-columns:1.05fr 1fr;gap:0;
-    border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
-    background:var(--surface);transition:border-color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease);
-  }
-  .proj:hover{border-color:var(--line-strong);box-shadow:0 30px 60px -36px rgba(20,18,12,.25)}
-  .proj-info{padding:46px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
-  .proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-  .proj-tags span{font-size:11.5px;color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;padding:5px 12px}
-  .proj-info h3{font-family:"Inter Tight";font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;letter-spacing:-.02em;line-height:1.05}
-  .proj-info .client{font-size:13px;color:var(--accent-ink);letter-spacing:.05em;margin-bottom:14px;text-transform:uppercase;font-weight:600}
-  .proj-info p{color:var(--ink-dim);font-size:1rem;margin-top:16px;max-width:38ch}
-  .proj-link{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ink);width:fit-content}
-  .proj-link .ico{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;transition:all .35s var(--ease)}
-  .proj:hover .proj-link .ico{background:var(--accent);color:#16150f;border-color:var(--accent);transform:rotate(45deg)}
-  .proj-visual{position:relative;overflow:hidden;min-height:380px;background:linear-gradient(160deg,var(--bg-soft),#e3e1d8)}
-  .proj-visual .mock{position:absolute;inset:0;display:grid;place-items:center}
-  .proj:nth-child(odd){grid-template-columns:1fr 1.05fr}
-  .proj:nth-child(odd) .proj-info{order:2}
-  .proj:nth-child(odd) .proj-visual{order:1}
-  @media(max-width:860px){
-    .proj,.proj:nth-child(odd){grid-template-columns:1fr}
-    .proj-info{order:2 !important;padding:32px}.proj-visual{order:1 !important;min-height:280px}
-  }
+  /* PROJECT */
+  .project{margin-bottom:120px}
+  .project:last-child{margin-bottom:0}
+  .proj-cover{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg-soft);aspect-ratio:1200/590;cursor:zoom-in}
+  .proj-cover img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .project:hover .proj-cover img{transform:scale(1.03)}
+  .proj-cover .badge{position:absolute;top:18px;left:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .proj-cover .badge span{font-size:11.5px;font-weight:500;background:rgba(255,255,255,.9);color:#16150f;backdrop-filter:blur(6px);border-radius:100px;padding:6px 13px;box-shadow:0 2px 10px -4px rgba(0,0,0,.3)}
 
-  /* device mockups (pure CSS, swap for real images) */
-  .phone{
-    width:200px;height:410px;border-radius:34px;background:#16150f;
-    border:1px solid rgba(20,18,12,.4);box-shadow:0 40px 80px -34px rgba(20,18,12,.5),0 0 0 8px rgba(255,255,255,.5);
-    padding:9px;transition:transform .6s var(--ease);
-  }
-  .proj:hover .phone{transform:translateY(-10px) rotate(-2deg)}
-  .phone-screen{width:100%;height:100%;border-radius:26px;overflow:hidden;position:relative}
-  .ss1{background:linear-gradient(160deg,#1a1f12,#0d0f0a)}
-  .ss2{background:linear-gradient(160deg,#101725,#0a0d14)}
-  .phone-screen .topbar{height:34px;display:flex;align-items:center;justify-content:center}
-  .phone-screen .notch{width:64px;height:6px;border-radius:10px;background:rgba(255,255,255,.18)}
-  .ph-app{padding:16px}
-  .ph-pill{height:11px;border-radius:6px;background:rgba(255,255,255,.12);margin-bottom:9px}
-  .ph-card{border-radius:14px;padding:14px;margin-top:14px}
-  .ss1 .accentbar{background:var(--accent)}
-  .glowtag{display:inline-block;font-family:"Inter Tight";font-weight:700;font-size:13px;padding:6px 12px;border-radius:9px;color:#16150f}
+  .proj-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin:34px 0 8px}
+  .proj-head .ttl h3{font-family:"Inter Tight";font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:600;letter-spacing:-.02em;line-height:1.05}
+  .proj-head .ttl .client{font-size:13px;color:var(--accent-ink);letter-spacing:.05em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+  .proj-head .yr{font-family:"Instrument Serif";font-size:1.5rem;color:var(--ink-faint);white-space:nowrap}
 
-  /* ---------- ABOUT / CAPABILITIES ---------- */
+  .proj-body{display:grid;grid-template-columns:300px 1fr;gap:56px;margin-top:40px;align-items:start}
+  @media(max-width:860px){.proj-body{grid-template-columns:1fr;gap:36px}}
+  .proj-meta{display:flex;flex-direction:column;gap:24px;border-top:1px solid var(--line);padding-top:26px}
+  .meta-row .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+  .meta-row .v{font-size:.96rem;color:var(--ink)}
+  .resp{display:flex;flex-wrap:wrap;gap:7px}
+  .resp span{font-size:11.5px;color:var(--ink-dim);border:1px solid var(--line);border-radius:100px;padding:5px 11px}
+  .proj-narr .block{margin-bottom:26px}
+  .proj-narr .lab{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:600;margin-bottom:10px}
+  .proj-narr .lab::before{content:"";width:18px;height:1px;background:var(--accent-ink)}
+  .proj-narr p{color:var(--ink-dim);font-size:1.05rem;line-height:1.65}
+  .proj-narr .hl{font-family:"Instrument Serif";font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--ink);line-height:1.35;letter-spacing:.01em}
+  .results{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;padding-top:26px;border-top:1px solid var(--line)}
+  .results .r .n{font-family:"Inter Tight";font-size:clamp(1.9rem,4vw,2.6rem);font-weight:600;letter-spacing:-.02em;line-height:1}
+  .results .r .n em{font-family:"Instrument Serif";font-style:italic;color:var(--accent-ink);font-weight:400}
+  .results .r .l{color:var(--ink-dim);font-size:.85rem;margin-top:8px;max-width:18ch}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:44px}
+  .gallery figure{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg-soft);cursor:zoom-in;position:relative}
+  .gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .gallery figure::after{content:"⤢";position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);color:#16150f;display:grid;place-items:center;font-size:13px;opacity:0;transition:opacity .3s}
+  .gallery figure:hover::after{opacity:1}
+  .g-wide{grid-column:span 12;aspect-ratio:2360/1032}
+  .g-half{grid-column:span 6;aspect-ratio:16/10}
+  .g-third{grid-column:span 4;aspect-ratio:4/3}
+  @media(max-width:760px){.g-half,.g-third{grid-column:span 12;aspect-ratio:16/10}}
+
+  /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
   @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:48px}}
-  .about-lead{font-family:"Instrument Serif";font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.25;letter-spacing:.01em}
+  .about-photo{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);position:relative}
+  .about-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:grayscale(1) contrast(1.03)}
+  .about-lead{font-family:"Instrument Serif";font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.28;letter-spacing:.01em;margin-bottom:26px}
   .about-lead em{color:var(--accent-ink);font-style:italic}
-  .about-body p{color:var(--ink-dim);font-size:1.05rem;margin-bottom:20px}
-  .caps{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:8px}
-  .cap{display:flex;align-items:center;gap:20px;padding:22px 4px;border-bottom:1px solid var(--line);transition:padding-left .35s var(--ease)}
-  .cap:hover{padding-left:16px}
+  .about-body p{color:var(--ink-dim);font-size:1.05rem;margin-bottom:18px}
+  .caps{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:30px}
+  .cap{display:flex;align-items:center;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line);transition:padding-left .35s var(--ease)}
+  .cap:hover{padding-left:14px}
   .cap .ci{font-family:"Instrument Serif";color:var(--ink-faint);font-size:.95rem;width:34px;flex:none}
-  .cap .ct{font-family:"Inter Tight";font-weight:500;font-size:1.15rem}
+  .cap .ct{font-family:"Inter Tight";font-weight:500;font-size:1.12rem}
   .cap .cd{margin-left:auto;color:var(--ink-faint);font-size:.85rem;text-align:right}
 
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:90px}
-  @media(max-width:640px){.stats{grid-template-columns:1fr;gap:0}}
-  .stat{border:1px solid var(--line);border-radius:var(--r);padding:34px;background:var(--surface)}
-  @media(max-width:640px){.stat{border-radius:0;border-bottom:none}.stat:first-child{border-radius:var(--r) var(--r) 0 0}.stat:last-child{border-radius:0 0 var(--r) var(--r);border-bottom:1px solid var(--line)}}
-  .stat .n{font-family:"Inter Tight";font-size:clamp(2.4rem,5vw,3.4rem);font-weight:600;letter-spacing:-.03em;line-height:1}
-  .stat .n em{font-family:"Instrument Serif";font-style:italic;color:var(--accent-ink);font-weight:400}
-  .stat .l{color:var(--ink-dim);font-size:.92rem;margin-top:12px}
-
-  /* ---------- CONTACT ---------- */
-  .contact{text-align:center;padding:150px 0 130px;position:relative}
+  /* CONTACT */
+  .contact{text-align:center;padding:150px 0 130px}
   .contact .mono-label{margin-bottom:30px;display:block}
-  .contact h2{
-    font-family:"Inter Tight";font-size:clamp(2.6rem,9vw,8rem);line-height:.95;letter-spacing:-.03em;font-weight:600;
-  }
+  .contact h2{font-family:"Inter Tight";font-size:clamp(2.6rem,9vw,8rem);line-height:.95;letter-spacing:-.03em;font-weight:600}
   .contact h2 em{font-family:"Instrument Serif";font-style:italic;font-weight:400;color:var(--accent-ink)}
-  .contact .big-cta{
-    display:inline-flex;align-items:center;gap:14px;margin-top:50px;
-    background:var(--ink);color:var(--bg);font-family:"Inter Tight";font-weight:600;font-size:1.05rem;
-    padding:18px 30px;border-radius:100px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
-  }
+  .contact .big-cta{display:inline-flex;align-items:center;gap:14px;margin-top:50px;background:var(--ink);color:var(--bg);font-family:"Inter Tight";font-weight:600;font-size:1.05rem;padding:18px 30px;border-radius:100px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
   .contact .big-cta:hover{transform:translateY(-3px);box-shadow:0 24px 50px -18px rgba(20,18,12,.4)}
   .contact .big-cta .ico{width:22px;height:22px;display:grid;place-items:center;transition:transform .35s var(--ease)}
   .contact .big-cta:hover .ico{transform:translate(3px,-3px)}
   .socials{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:54px}
-  .socials a{
-    display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-strong);border-radius:100px;
-    padding:11px 20px;font-size:14px;color:var(--ink-dim);transition:all .3s var(--ease);background:var(--surface)
-  }
+  .socials a{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-strong);border-radius:100px;padding:11px 20px;font-size:14px;color:var(--ink-dim);transition:all .3s var(--ease);background:var(--surface)}
   .socials a:hover{border-color:var(--accent-ink);color:var(--ink);transform:translateY(-2px)}
 
-  /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:40px 0}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:var(--ink-faint);font-size:13px}
   .foot a:hover{color:var(--ink)}
-  .to-top{display:inline-flex;align-items:center;gap:8px;color:var(--ink-dim);font-size:13px}
   .to-top:hover{color:var(--accent-ink)}
+
+  /* LIGHTBOX */
+  .lb{position:fixed;inset:0;z-index:1000;background:rgba(18,16,11,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:94vw;max-height:90vh;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);animation:lbin .35s var(--ease)}
+  @keyframes lbin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+  .lb .close{position:absolute;top:24px;right:28px;color:#fff;font-size:30px;line-height:1;opacity:.8}
+  .lb .close:hover{opacity:1}
 
   @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}.reveal{transform:none !important}.hero-sub{opacity:1 !important;transform:none !important}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="#top" class="brand"><span class="dot"></span> Mike<span style="color:var(--ink-faint);font-weight:400">/kaidesignworks</span></a>
   <div class="navlinks">
@@ -272,7 +208,7 @@
   <div class="hero-glow"></div>
   <div class="wrap hero-inner">
     <div class="hero-top">
-      <div class="av">M</div>
+      <img class="av" src="assets/fd0DB4EAaaF1C4bF3Nsr1J6JQ.jpg" alt="Mike portrait" />
       <div class="meta"><b>Mike</b> — UI/UX Designer<br>Designing across mobile, web & AI products</div>
     </div>
     <span class="status"><span class="pulse"></span> Available for new projects</span>
@@ -301,122 +237,130 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal-up">
-      <span class="num">01</span>
-      <h2>Selected Work</h2>
-      <span class="line"></span>
-      <span class="mono-label">2024 — 2026</span>
+      <span class="num">01</span><h2>Selected Work</h2><span class="line"></span><span class="mono-label">2024 — 2025</span>
     </div>
 
-    <div class="projects">
+    <!-- PROJECT 1: SNATCH -->
+    <article class="project reveal-up">
+      <a class="proj-cover" href="https://obrofolio.framer.website/work/snatch-trainerplux" data-lb="assets/ndEYziHlRYFTuJQcOcdbv7lst4.png" onclick="return openLb(this)">
+        <img src="assets/ndEYziHlRYFTuJQcOcdbv7lst4.png" alt="Snatch — fitness coaching app cover" loading="lazy" />
+        <div class="badge"><span>Mobile App + Web</span><span>Fitness</span><span>0 → 1 Launch</span></div>
+      </a>
 
-      <!-- Project 1 -->
-      <article class="proj reveal-up">
-        <div class="proj-visual">
-          <div class="mock">
-            <div class="phone">
-              <div class="phone-screen ss1">
-                <div class="topbar"><div class="notch"></div></div>
-                <div class="ph-app">
-                  <div class="ph-pill" style="width:55%"></div>
-                  <div class="ph-pill" style="width:80%;opacity:.6"></div>
-                  <div class="ph-card" style="background:rgba(200,255,77,.12);border:1px solid rgba(200,255,77,.2)">
-                    <span class="glowtag" style="background:var(--accent)">SNATCH</span>
-                    <div class="ph-pill accentbar" style="width:70%;margin-top:12px;height:8px"></div>
-                    <div class="ph-pill" style="width:50%;margin-top:8px;height:8px;opacity:.5"></div>
-                  </div>
-                  <div class="ph-card" style="background:rgba(255,255,255,.05);margin-top:12px">
-                    <div class="ph-pill" style="width:90%;height:8px"></div>
-                    <div class="ph-pill" style="width:60%;margin-top:8px;height:8px;opacity:.5"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="proj-head">
+        <div class="ttl">
+          <div class="client">Sol Fir Tech Inc. · Fitness</div>
+          <h3>Snatch — a complete fitness coaching platform</h3>
         </div>
-        <div class="proj-info">
-          <div>
-            <div class="proj-tags"><span>Mobile App</span><span>Fitness</span><span>UX / UI</span></div>
-            <div class="client">Sol Fir Tech Inc.</div>
-            <h3>Snatch — training, simplified</h3>
-            <p>A focused fitness training experience. Designed clean workout flows and a coherent design system that keeps athletes in the zone without friction.</p>
-          </div>
-          <a class="proj-link" href="https://obrofolio.framer.website/work/snatch-trainerplux" target="_blank" rel="noopener">
-            View case study <span class="ico">↗</span>
-          </a>
-        </div>
-      </article>
+        <div class="yr">2024–25</div>
+      </div>
 
-      <!-- Project 2 -->
-      <article class="proj reveal-up">
-        <div class="proj-visual">
-          <div class="mock">
-            <div class="phone">
-              <div class="phone-screen ss2">
-                <div class="topbar"><div class="notch"></div></div>
-                <div class="ph-app">
-                  <div class="ph-pill" style="width:45%"></div>
-                  <div class="ph-card" style="background:rgba(90,140,255,.14);border:1px solid rgba(120,160,255,.25);margin-top:18px">
-                    <span class="glowtag" style="background:#7aa0ff">AHA · AI</span>
-                    <div class="ph-pill" style="width:85%;margin-top:12px;height:8px;background:rgba(160,190,255,.5)"></div>
-                    <div class="ph-pill" style="width:65%;margin-top:8px;height:8px;background:rgba(160,190,255,.3)"></div>
-                    <div class="ph-pill" style="width:75%;margin-top:8px;height:8px;background:rgba(160,190,255,.3)"></div>
-                  </div>
-                  <div style="display:flex;gap:8px;margin-top:14px">
-                    <div class="ph-card" style="flex:1;background:rgba(255,255,255,.05);padding:10px"><div class="ph-pill" style="height:7px;margin:0"></div></div>
-                    <div class="ph-card" style="flex:1;background:rgba(255,255,255,.05);padding:10px"><div class="ph-pill" style="height:7px;margin:0"></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <div class="meta-row"><div class="k">Role</div><div class="v">Lead Product Designer &amp; Strategist · Sole designer, 0→1 launch</div></div>
+          <div class="meta-row"><div class="k">Timeline</div><div class="v">2024 – 2025</div></div>
+          <div class="meta-row"><div class="k">Responsibilities</div>
+            <div class="resp"><span>User Research</span><span>Branding</span><span>Wireframe</span><span>UI Design</span><span>Design System</span><span>Prototype</span><span>App &amp; Web Layout</span><span>Product Strategy</span></div>
           </div>
         </div>
-        <div class="proj-info">
-          <div>
-            <div class="proj-tags"><span>AI Product</span><span>Web & Mobile</span><span>Design System</span></div>
-            <div class="client">Aha AI Inc.</div>
-            <h3>Aha AI — intelligence made approachable</h3>
-            <p>Turning complex AI capabilities into a calm, understandable interface. Built end-to-end user flows and a scalable system across platforms.</p>
-          </div>
-          <a class="proj-link" href="https://obrofolio.framer.website/work/aha-ai" target="_blank" rel="noopener">
-            View case study <span class="ico">↗</span>
-          </a>
-        </div>
-      </article>
 
-    </div>
+        <div class="proj-narr">
+          <div class="block">
+            <span class="lab">The Problem</span>
+            <p>The fitness industry relied on fragmented scheduling and private messaging — creating unstable income for coaches and inconsistent experiences for students. The traditional model couldn't accommodate flexible time slots or quick, urgent micro-questions.</p>
+          </div>
+          <div class="block">
+            <span class="lab">The Solution</span>
+            <p class="hl">Snatch introduced flexible 5-, 10- and 15-minute video consultations — letting coaches monetize the gaps between sessions while students get immediate, personalized guidance.</p>
+          </div>
+          <div class="results">
+            <div class="r"><div class="n">9–10<em>%</em></div><div class="l">Landing page conversion rate</div></div>
+            <div class="r"><div class="n">36<em>%</em></div><div class="l">CTA conversion rate</div></div>
+            <div class="r"><div class="n"><em>0→1</em></div><div class="l">Designed end-to-end, solo</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure class="g-wide" data-lb="assets/TZ0iFII5TtmM5udw96dNs3Cw.png" onclick="openLb(this)"><img src="assets/TZ0iFII5TtmM5udw96dNs3Cw.png" alt="Snatch app screens" loading="lazy"></figure>
+        <figure class="g-half" data-lb="assets/JEIWFFLkb8PfMpfD3WyO4kQ1SM.png" onclick="openLb(this)"><img src="assets/JEIWFFLkb8PfMpfD3WyO4kQ1SM.png" alt="真人教練一對一視訊授課" loading="lazy"></figure>
+        <figure class="g-half" data-lb="assets/RyprGFFgV8ywdCHTCks286eVrS4.png" onclick="openLb(this)"><img src="assets/RyprGFFgV8ywdCHTCks286eVrS4.png" alt="預約時程系統" loading="lazy"></figure>
+        <figure class="g-third" data-lb="assets/cLK258D6YqwUDTfECio7tyfwgw.png" onclick="openLb(this)"><img src="assets/cLK258D6YqwUDTfECio7tyfwgw.png" alt="Snatch button design system" loading="lazy"></figure>
+        <figure class="g-third" data-lb="assets/EB6rjFQqmbRiyjd4QE0DLJITnw.png" onclick="openLb(this)"><img src="assets/EB6rjFQqmbRiyjd4QE0DLJITnw.png" alt="Snatch icon system" loading="lazy"></figure>
+        <figure class="g-third" data-lb="assets/eEXka76b2hHXzLOgBsypnYFZM4.png" onclick="openLb(this)"><img src="assets/eEXka76b2hHXzLOgBsypnYFZM4.png" alt="Snatch user flow & wireframes" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <!-- PROJECT 2: AHA AI -->
+    <article class="project reveal-up">
+      <a class="proj-cover" href="https://obrofolio.framer.website/work/aha-ai" data-lb="assets/NpIp4cQ1klsU3BjNfLj6OZV2E.png" onclick="return openLb(this)">
+        <img src="assets/NpIp4cQ1klsU3BjNfLj6OZV2E.png" alt="Aha AI — learning platform cover" loading="lazy" />
+        <div class="badge"><span>Web &amp; App</span><span>EdTech · AI</span><span>Design System</span></div>
+      </a>
+
+      <div class="proj-head">
+        <div class="ttl">
+          <div class="client">Aha AI Inc. · EdTech · AI-driven Learning</div>
+          <h3>Aha AI — a scalable design system for web &amp; app</h3>
+        </div>
+        <div class="yr">2024</div>
+      </div>
+
+      <div class="proj-body">
+        <div class="proj-meta">
+          <div class="meta-row"><div class="k">Role</div><div class="v">UI/UX Designer</div></div>
+          <div class="meta-row"><div class="k">Timeline</div><div class="v">2024 / 01 – 2024 / 07</div></div>
+          <div class="meta-row"><div class="k">Responsibilities</div>
+            <div class="resp"><span>User Research</span><span>Wireframe</span><span>UI Design</span><span>Design System</span><span>Prototype</span><span>App &amp; Web Layout</span></div>
+          </div>
+        </div>
+
+        <div class="proj-narr">
+          <div class="block">
+            <span class="lab">Overview</span>
+            <p class="hl tc">重建破碎的設計系統，打造可擴展的 Web 與 App 使用體驗。</p>
+          </div>
+          <div class="block">
+            <p>Aha AI is an AI-driven online learning platform helping students prepare more effectively for English proficiency exams. My focus was enhancing usability, visual consistency and system scalability across web and app — establishing a unified design system, standardizing UI patterns, optimizing cross-platform UX flows, and supporting the product team through prototypes and design QA.</p>
+          </div>
+          <div class="results">
+            <div class="r"><div class="n"><em>1</em></div><div class="l">Unified, token-based design system</div></div>
+            <div class="r"><div class="n">8<em>px</em></div><div class="l">Spacing baseline across all components</div></div>
+            <div class="r"><div class="n">2</div><div class="l">Platforms — web &amp; app — aligned</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure class="g-half" data-lb="assets/RA5hIZefcyns3awR9DeeZPEBX0U.png" onclick="openLb(this)"><img src="assets/RA5hIZefcyns3awR9DeeZPEBX0U.png" alt="Aha AI typography & color system" loading="lazy"></figure>
+        <figure class="g-half" data-lb="assets/YBeXq8m3knLecsy5tUZ1nusU7ZI.png" onclick="openLb(this)"><img src="assets/YBeXq8m3knLecsy5tUZ1nusU7ZI.png" alt="Aha AI logo, icon & button system" loading="lazy"></figure>
+        <figure class="g-half" data-lb="assets/oTHcqBXdH1o05JUy48sNUmfhI.png" onclick="openLb(this)"><img src="assets/oTHcqBXdH1o05JUy48sNUmfhI.png" alt="Aha AI practice flow wireframes" loading="lazy"></figure>
+        <figure class="g-half" data-lb="assets/KEU4MBftqDfJ8eBKMlmnaEegKr0.png" onclick="openLb(this)"><img src="assets/KEU4MBftqDfJ8eBKMlmnaEegKr0.png" alt="Aha AI agent detail page spec" loading="lazy"></figure>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="sec-head reveal-up">
-      <span class="num">02</span>
-      <h2>About</h2>
-      <span class="line"></span>
-    </div>
+    <div class="sec-head reveal-up"><span class="num">02</span><h2>About</h2><span class="line"></span></div>
 
     <div class="about-grid">
+      <div class="about-photo reveal-up"><img src="assets/fd0DB4EAaaF1C4bF3Nsr1J6JQ.jpg" alt="Mike — UI/UX designer"></div>
       <div class="reveal-up">
         <p class="about-lead">I design products that feel <em>obvious</em> — where every screen earns its place and nothing gets in the way.</p>
-      </div>
-      <div class="about-body reveal-up">
-        <p>I'm Mike, a UI/UX designer focused on the craft of clear thinking made visible. My work lives at the intersection of design systems, user flows and multi-platform product experiences.</p>
-        <p>Whether it's a fitness app or an AI platform, my goal is the same: reduce cognitive load through consistent, intuitive interfaces that help people get things done.</p>
-
+        <div class="about-body">
+          <p>I'm Mike, a UI/UX designer working at the intersection of design systems, user flows and multi-platform product experiences. From a 0→1 fitness platform to rebuilding an AI learning product's design system, my goal stays the same: reduce cognitive load through clear, consistent, intuitive interfaces.</p>
+        </div>
         <div class="caps">
           <div class="cap"><span class="ci">A1</span><span class="ct">Design Systems</span><span class="cd">Scalable, token-driven</span></div>
-          <div class="cap"><span class="ci">A2</span><span class="ct">User Flows & IA</span><span class="cd">Clarity first</span></div>
+          <div class="cap"><span class="ci">A2</span><span class="ct">User Flows &amp; IA</span><span class="cd">Clarity first</span></div>
           <div class="cap"><span class="ci">A3</span><span class="ct">Multi-platform UI</span><span class="cd">Mobile · Web · AI</span></div>
-          <div class="cap"><span class="ci">A4</span><span class="ct">Prototyping</span><span class="cd">Test, refine, ship</span></div>
+          <div class="cap"><span class="ci">A4</span><span class="ct">Product Strategy</span><span class="cd">0 → 1 thinking</span></div>
         </div>
       </div>
-    </div>
-
-    <div class="stats">
-      <div class="stat reveal-up"><div class="n">5<em>+</em></div><div class="l">Years crafting digital products</div></div>
-      <div class="stat reveal-up"><div class="n">2</div><div class="l">Featured product case studies</div></div>
-      <div class="stat reveal-up"><div class="n"><em>∞</em></div><div class="l">Pixels considered, then removed</div></div>
     </div>
   </div>
 </section>
@@ -427,9 +371,7 @@
     <span class="mono-label">Let's build something</span>
     <h2>Let's <em>talk</em>.</h2>
     <div>
-      <a class="big-cta" href="https://obrofolio.framer.website/contact" target="_blank" rel="noopener">
-        Start a project <span class="ico">↗</span>
-      </a>
+      <a class="big-cta" href="https://obrofolio.framer.website/contact" target="_blank" rel="noopener">Start a project <span class="ico">↗</span></a>
     </div>
     <div class="socials">
       <a href="https://instagram.com/obro_dad" target="_blank" rel="noopener">◎ Instagram</a>
@@ -440,13 +382,15 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap foot">
-    <span>© 2026 Mike · kaidesignworks. Designed with intent.</span>
+    <span>© 2025 Mike · kaidesignworks. Designed with intent.</span>
     <a href="#top" class="to-top">Back to top ↑</a>
   </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLb()"><span class="close">✕</span><img id="lbimg" src="" alt="enlarged view"></div>
 
 <script>
   const nav = document.getElementById('nav');
@@ -458,8 +402,14 @@
 
   const io = new IntersectionObserver((entries)=>{
     entries.forEach((e)=>{ if(e.isIntersecting){ e.target.style.transitionDelay=(e.target.dataset.d||0)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal-up').forEach((el,i)=>{ el.dataset.d=(i%3)*90; io.observe(el); });
+
+  // lightbox
+  const lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
+  function openLb(el){ const src=el.getAttribute('data-lb'); if(!src) return; lbimg.src=src; lb.classList.add('open'); document.body.style.overflow='hidden'; return false; }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
 </script>
 </body>
 </html>
