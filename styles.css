@@ -99,8 +99,8 @@ header{min-height:100vh;display:flex;flex-direction:column;justify-content:cente
 .status .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);position:relative}
 .status .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent-ink);animation:pulse 2s infinite}
 @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3);opacity:0}}
-h1.hero-title{font-size:clamp(2.9rem,8.5vw,7.6rem);line-height:.98;letter-spacing:-.035em;font-weight:600;font-family:"Inter Tight"}
-h1.hero-title .ln{display:block;overflow:hidden}
+h1.hero-title{font-size:clamp(2.9rem,8.5vw,7.6rem);line-height:1.04;letter-spacing:-.035em;font-weight:600;font-family:"Inter Tight"}
+h1.hero-title .ln{display:block;overflow:hidden;padding:.02em .06em .16em;margin:-.02em -.06em -.12em}
 h1.hero-title em{font-style:italic;font-weight:400;color:var(--accent-ink)}
 .hero-title .reveal{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
 .loaded .hero-title .reveal{transform:translateY(0)}
